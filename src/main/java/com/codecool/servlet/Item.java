@@ -23,4 +23,12 @@ public class Item {
     public Double getPrice() {
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

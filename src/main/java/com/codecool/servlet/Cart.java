@@ -57,4 +57,18 @@ public class Cart {
         return this.myItems.indexOf(item);
     }
 
+    private int cartItemsSum(){
+        int sum =0;
+        for(Item item: myItems){
+            sum +=item.getPrice();
+        }
+        return sum;
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "myItems=" + myItems +
+                '}';
+    }
 }

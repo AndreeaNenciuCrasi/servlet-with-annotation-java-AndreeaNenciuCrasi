@@ -13,8 +13,6 @@ public class ServletWithAnnotations extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        Cart cart =new Cart();
-        Item item = new Item("Nivea Creme", 10.00);
 
         PrintWriter out = response.getWriter();
         String title = "GET method with parameters to display";

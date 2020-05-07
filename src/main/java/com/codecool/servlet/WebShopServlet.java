@@ -43,7 +43,7 @@ public class WebShopServlet extends HttpServlet{
         }
 
         PrintWriter out = response.getWriter();
-        String title = "Initial Stock";
+        String title = "Stock";
 
         out.println(
                 "<html>\n" +
@@ -52,16 +52,17 @@ public class WebShopServlet extends HttpServlet{
                         "<h1 align = \"center\">" + title + "</h1>\n" +
                         "<table>" +
                         "<thead>"+
-                        "<th>Product</th>"+
-                        "<th>Price RON</th>"+
-                        "<th>Add</th>"+
-                        "<th>Remove</th>"+
+                        "<th><b>Product</b></th>"+
+                        "<th><b>Price RON</b></th>"+
+                        "<th><b>Add</b></th>"+
+                        "<th><b>Remove</b></th>"+
                         "</thead>"+
                         "<tbody>"+
                         buffer +
                         "</tbody>" +
                         "</table>" +
-                        "<div><a href=\"/another\">Cart</a></div>" +
+                        "<div><a href=\"/itemsCart\"><h2>Cart</h2></a></div>" +
+                        "<div><a href=\"/\"><h2>Main page</h2></a></div>" +
                         "</body></html>"
         );
 

@@ -33,7 +33,7 @@ public class Cart {
         return true;
     }
 
-    public boolean updateContact(Item oldItem, Item newItem) {
+    public boolean updateItem(Item oldItem, Item newItem) {
         int foundPosition = findItem(oldItem);
         if (foundPosition < 0) {
             System.out.println(oldItem.getName() + ", was not found");
@@ -61,13 +61,13 @@ public class Cart {
         return this.myItems.indexOf(item);
     }
 
-    private int cartItemsSum(){
-        int sum =0;
-        for(Item item: myItems){
-            sum +=item.getPrice();
-        }
-        return sum;
-    }
+//    private double cartItemsSum(){
+//        int sum =0;
+//        for(Item item: this.myItems){
+//            sum +=item.getPrice();
+//        }
+//        return sum;
+//    }
 
     @Override
     public String toString() {

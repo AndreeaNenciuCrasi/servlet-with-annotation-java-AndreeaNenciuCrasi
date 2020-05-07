@@ -18,14 +18,14 @@ public class ShoppingCartServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        double sumCart = 0;
 
+        double sumCart = 0;
+        cart.addNewItem(new Item("Children Charity Donation", 1.00));
         StringBuffer buffer = new StringBuffer();
 
         for (Item item : this.cart.getMyItems()) {
-            buffer.append("<li>" + item.getName() + item.getPrice() + "</li>");
+            buffer.append("<li><b>" + item.getName()+"</b>"+ " " +  item.getPrice() + "</li>");
             sumCart +=item.getPrice();
-            buffer.append("<li>" + sumCart + "</li>");
         }
 
         PrintWriter out = response.getWriter();

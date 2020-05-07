@@ -6,9 +6,12 @@ import java.util.Set;
 public class Stock {
     private Set<Item> stockList;
 
-    public Stock(Set<Item> initialStock) {
+    public Stock() {
         this.stockList = new HashSet<>();
-        this.stockList.addAll(initialStock);
+    }
+
+    public Set<Item> getStockList() {
+        return this.stockList;
     }
 
     public boolean addItemInStock(Item item){

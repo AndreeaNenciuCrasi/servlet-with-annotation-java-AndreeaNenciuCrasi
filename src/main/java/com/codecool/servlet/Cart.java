@@ -9,6 +9,10 @@ public class Cart {
         this.myItems = new ArrayList<Item>();
     }
 
+    public ArrayList<Item> getMyItems() {
+        return myItems;
+    }
+
     public boolean addNewItem(Item item) {
         if (findItem(item.getName()) >= 0) {
             System.out.println("Contact is already in file.");

@@ -22,10 +22,10 @@ public class ServletWithAnnotations extends HttpServlet {
                 "<head><title>" + title + "</title></head>\n" +
                 "<body>\n" +
                 "<h1 align = \"center\">" + title + "</h1>\n" +
+                        "<a href=\"/webShop\">\n" +
                 "<ul>\n" +
                 "<li><b>First Name</b>: " + request.getParameter("first_name") + "\n" +
                 "<li><b>Last Name</b>: " + request.getParameter("last_name") + "\n" +
-                "<li><b>Last Name</b>: " + item.getName() + "\n" +
                 "</ul>\n" +
                 "<div>Visit another servlet: <a href=\"/another\">Visit the other servlet</a></div>" +
                 "</body></html>"

@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Set;
 
-@WebServlet(name = "webShopServlet", urlPatterns = {"/webShop"}, loadOnStartup = 1)
+@WebServlet(name = "webShopServlet", urlPatterns = {"/"}, loadOnStartup = 1)
 public class WebShopServlet extends HttpServlet{
     private Stock shopStock;
     private Cart cart;
@@ -27,11 +27,15 @@ public class WebShopServlet extends HttpServlet{
         shopStock.addItemInStock(new Item("Gaming Headset", 170.00));
     }
 
+    public void init(){
+        initStock();
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        initStock();
+
         StringBuffer buffer = new StringBuffer();
         for (Item item : this.shopStock.getStockList()) {
             buffer.append("<tr>");
@@ -43,7 +47,7 @@ public class WebShopServlet extends HttpServlet{
         }
 
         PrintWriter out = response.getWriter();
-        String title = "Stock";
+        String title = "WebShop";
 
         out.println(
                 "<html>\n" +
@@ -62,7 +66,6 @@ public class WebShopServlet extends HttpServlet{
                         "</tbody>" +
                         "</table>" +
                         "<div><a href=\"/itemsCart\"><h2>Cart</h2></a></div>" +
-                        "<div><a href=\"/\"><h2>Main page</h2></a></div>" +
                         "</body></html>"
         );
 

@@ -15,7 +15,7 @@ public class Cart {
 
     public boolean addNewItem(Item item) {
         if (findItem(item.getName()) >= 0) {
-            System.out.println("Contact is already in file.");
+            System.out.println("Item is already in file.");
             return false;
         }
         myItems.add(item);

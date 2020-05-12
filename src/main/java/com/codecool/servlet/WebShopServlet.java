@@ -1,5 +1,6 @@
 package com.codecool.servlet;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,8 +34,7 @@ public class WebShopServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
-
+            throws IOException, ServletException {
 
         StringBuffer buffer = new StringBuffer();
         for (Item item : this.shopStock.getStockList()) {
@@ -66,15 +66,19 @@ public class WebShopServlet extends HttpServlet{
                         "</tbody>" +
                         "</table>" +
                         "<div><a href=\"/itemsCart\"><h2>Cart</h2></a></div>" +
+                        "<div><a href= \"/?checkout=true\"><button>Checkout</button></a></div>" +
                         "</body></html>"
         );
 
+
         String itemToAddInCart = request.getParameter("addItemInCart");
         String itemToRemoveFromCart = request.getParameter("removeItemFromCart");
+        String checkout = request.getParameter("checkout");
 
         if(itemToAddInCart!=null){
             for(Item item: this.shopStock.getStockList()){
                 if(item.getName().equals(itemToAddInCart)){
+                    System.out.println(item);
                     cart.addNewItem(item);
                 }
             }
@@ -82,11 +86,17 @@ public class WebShopServlet extends HttpServlet{
 
         if(itemToRemoveFromCart!=null){
             for(Item item: this.shopStock.getStockList()){
-                if(item.getName().equals(itemToAddInCart)){
+                if(item.getName().equals(itemToRemoveFromCart)){
                     cart.removeItem(item);
                 }
             }
         }
+
+        if(checkout != null){
+            request.setAttribute("cart", cart);
+            request.getRequestDispatcher("/itemsCart").forward(request, response);
+        }
+
     }
 
 }

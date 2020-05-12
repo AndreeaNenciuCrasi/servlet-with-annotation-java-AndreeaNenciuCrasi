@@ -37,7 +37,7 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.9.v20180320</version>
                 <configuration>
-                    <httpConnector><port>9998</port></httpConnector>
+                    <httpConnector><port>9997</port></httpConnector>
                     <reload>automatic</reload>
                     <scanIntervalSeconds>1</scanIntervalSeconds>
                 </configuration>
